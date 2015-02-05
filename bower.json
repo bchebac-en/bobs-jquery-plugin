@@ -1,0 +1,24 @@
+{
+  "name": "Practice",
+  "version": "0.1.0",
+  "homepage": "https://github.com/bchebac-en/bobs-jquery-plugin",
+  "authors": [
+    "Bob"
+  ],
+  "main": "public/index.html",
+  "description": "The place where I dabble in a little bit of this and a little bit of that",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "livereload-js": "~2.2.1",
+    "jquery": "1.10.2",
+    "handlebars": "~2.0.0"
+  }
+}
