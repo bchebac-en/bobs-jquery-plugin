@@ -1,3 +1,4 @@
 node_modules/
 bower_components/jquery/test/data/offset/static.html
 bower_components/
+build/
