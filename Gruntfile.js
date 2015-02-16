@@ -4,8 +4,22 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
+			clear: {
+			files: ['*.html', 'js/*.js', 'less/*.less', 'templates/*.hbs'], 
+			tasks: ['clear']
+			},
 			options: {
 				livereload: true
+			},
+			markup: {
+				files: ['*.html']
+			},
+			templates: {
+				files: ['templates/*.hbs'],
+				tasks: ['handlebars'],
+				options: {
+					spawn: false
+				}
 			},
 			scripts: {
 				files: ['js/*.js'],
@@ -16,7 +30,7 @@ module.exports = function(grunt) {
 			},
 			less: {
 				files: ['less/*.less'],
-				tasks: ['less', 'csslint:strict', 'cssmin'],
+				tasks: ['less', 'csslint:lax', 'cssmin'],
 				options: {
 					spawn: false
 				}
@@ -44,6 +58,22 @@ module.exports = function(grunt) {
 		csslint: {
 			strict: {
 				src: ['less/css/*.css']
+			},
+			lax: {
+				options: {
+				  csslintrc: '.csslintrc'
+				},
+				src: ['less/css/*.css']
+			},
+		},
+		handlebars: {
+		  compile: {
+		    options: {
+					namespace: "JST"
+				},
+				files: {
+					'build/templates/result.tmpl.js' : [ 'templates/*.hbs']
+				}
 			}
 		},
 		cssmin: {
@@ -66,9 +96,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-handlebars');
+	grunt.loadNpmTasks('grunt-clear');
 
 
 	// Default task(s).
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['uglify', 'jshint','less', 'csslint:strict', 'cssmin']);
+	grunt.registerTask('build', ['uglify', 'jshint','less', 'csslint:lax', 'cssmin']);
 };

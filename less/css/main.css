@@ -109,8 +109,105 @@ a img {
   border: 0;
 }
 :focus {
+  border: 1px solid red;
   outline: 0;
 }
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.tooltip {
+  background: #0ca5b0;
+  color: #fefeeb;
+  width: 200px;
+  border: 2px solid #a5b3aa;
+  border-radius: 10px;
+  vertical-align: middle;
+  text-align: justify;
+  font-size: 13px;
+  position: absolute;
+  padding: 5px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tooltip:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #a5b3aa;
+  border-width: 10px;
+  margin-left: -10px;
+}
 body {
-  background-color: #b9c8e0;
+  background: #343838;
+}
+header {
+  height: 70px;
+  padding: 15px;
+  background: #005f6b;
+  border-bottom: 2px solid #00bad1;
+  margin-bottom: 30px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+header .main-title {
+  font-size: 21.6px;
+  color: #00b4cc;
+}
+.wrapper {
+  width: 720px;
+  margin: 0 auto;
+}
+.wrapper .content {
+  background: #008c9e;
+  padding: 20px 40px 0;
+  position: relative;
+}
+.wrapper .content ul {
+  list-style: none;
+}
+.wrapper .content ul li {
+  margin: 25px auto;
+  height: 100%;
+  width: 25%;
+  float: left;
+}
+.wrapper .content ul li span {
+  border-radius: 45px;
+  background: #00dffc;
+  display: block;
+  margin: 0 auto;
+  height: 90px;
+  width: 90px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 90px;
+  color: #005863;
+  border: 3px solid #00dffc;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrapper .content ul li span:hover {
+  background: #63edff;
+  border-color: #006e7d;
+  color: #009bb0;
+}
+.wrapper .content ul li span:last-of-type {
+  display: none;
+}
+.clear-both {
+  clear: both;
 }
